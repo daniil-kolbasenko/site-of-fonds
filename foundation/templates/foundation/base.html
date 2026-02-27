@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page_title }} - {{ site_settings.title }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@400;500;600;700&subset=cyrillic,cyrillic-ext&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Верхний хедер -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-inner">
+                <!-- Логотип по центру -->
+                <div class="header-logo">
+                    <a href="{% url 'foundation:index' %}">
+                        {% if site_settings.logo %}
+                            <img src="{{ site_settings.logo.url }}" alt="{{ site_settings.title }}" class="logo-img">
+                        {% else %}
+                            <div class="logo-text-block">
+                                <div class="logo-small-text">БЛАГОТВОРИТЕЛЬНЫЙ</div>
+                                <div class="logo-main-text">ФОНД</div>
+                                <div class="logo-small-text">БОРЬБЫ С ПРОФЕССИОНАЛЬНЫМ ВЫГОРАНИЕМ</div>
+                            </div>
+                        {% endif %}
+                    </a>
+                </div>
+            </div>
+
+            <!-- Навигация -->
+            <nav class="main-navigation">
+                <ul class="nav-menu">
+                    <li><a href="/o-fonde/" class="nav-link">О фонде</a></li>
+                    <li><a href="/program/" class="nav-link">Программа</a></li>
+                    <li><a href="/patient-stories/" class="nav-link">Истории пациентов</a></li>
+                    <li><a href="{{ site_settings.support_url }}" class="nav-link">Поддержать</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <!-- Футер -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-logo">
+                    <h3>{{ site_settings.title }}</h3>
+                </div>
+                <div class="footer-menu">
+                    <h5>{{ site_settings.title }}</h5>
+                    <ul>
+                        <li><a href="/o-fonde/">О фонде</a></li>
+                        <li><a href="/doc/">Документы фонда</a></li>
+                        <li><a href="/rekvizity/">Реквизиты</a></li>
+                        <li><a href="/program/">Программа</a></li>
+                        <li><a href="/patient-stories/">Истории пациентов</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contacts">
+                    <h5>Контактная информация</h5>
+                    <h3><a href="tel:+74956453377">+7 495 645 33 77</a></h3>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-copyright">
+                <p>© {% now "Y" %} г. <a href="{% url 'foundation:index' %}">{{ site_settings.title }}</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

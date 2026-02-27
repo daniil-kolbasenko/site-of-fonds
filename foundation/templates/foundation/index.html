@@ -1,0 +1,44 @@
+{% extends 'foundation/base.html' %}
+
+{% block content %}
+<section class="page-content">
+    <!-- Заголовок страницы -->
+    <div class="page-header">
+        <h1>{{ page_title }}</h1>
+        <div class="breadcrumbs">
+            <a href="{% url 'foundation:index' %}">Главная</a>
+            <span>/</span>
+            <span class="current">{{ page_title }}</span>
+        </div>
+    </div>
+
+    <!-- Основной контент -->
+    <div class="page-body">
+        <div class="welcome-section">
+            <h2>Добро пожаловать на сайт {{ site_settings.title }}</h2>
+            <p>Мы помогаем пациентам получить квалифицированную медицинскую помощь.</p>
+        </div>
+
+        <!-- Карточки информации -->
+        <div class="info-section">
+            <div class="info-card">
+                <h3>О фонде</h3>
+                <p>Благотворительный фонд помогает пациентам с тяжелыми заболеваниями.</p>
+                <a href="/o-fonde/" class="btn-link">Подробнее →</a>
+            </div>
+
+            <div class="info-card">
+                <h3>Программа</h3>
+                <p>Наши программы направлены на поддержку пациентов.</p>
+                <a href="/program/" class="btn-link">Подробнее →</a>
+            </div>
+
+            <div class="info-card">
+                <h3>Истории пациентов</h3>
+                <p>Реальные истории людей, которые получили помощь.</p>
+                <a href="/patient-stories/" class="btn-link">Подробнее →</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
