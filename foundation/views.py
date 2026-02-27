@@ -16,24 +16,24 @@ def get_site_context():
 def index(request):
     context = get_site_context()
     context['page_title'] = 'Главная'
-    return render(request, 'foundation/index.html', context)
+    return render(request, 'index.html', context)
 
 def about(request):
     context = get_site_context()
     context['page_title'] = 'О фонде'
-    return render(request, 'foundation/index.html', context)
+    return render(request, 'index.html', context)
 
 def program(request):
     context = get_site_context()
     context['page_title'] = 'Программа'
-    return render(request, 'foundation/index.html', context)
+    return render(request, 'index.html', context)
 
 def patient_stories(request):
     context = get_site_context()
     context['page_title'] = 'Истории пациентов'
-    return render(request, 'foundation/index.html', context)
+    return render(request, 'index.html', context)
 
 def support(request):
     context = get_site_context()
     context['page_title'] = 'Поддержать'
-    return render(request, 'foundation/index.html', context)
+    return render(request, 'index.html', context)
