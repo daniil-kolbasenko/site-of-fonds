@@ -35,7 +35,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / 'templates',  # Глобальная папка templates
+            BASE_DIR,  # Для index.html и base.html в корне проекта
+            BASE_DIR / 'templates',
         ],
         'APP_DIRS': True,  # Важно: True для поиска в папках приложений
         'OPTIONS': {
